@@ -1,0 +1,8 @@
+extends layout
+block content
+  .container
+    h3 Patient Locator
+    div(id="map")
+  script(src='/js/googlemaps.js')
+  script(async, defer, src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTlyUDNxQ1TSG-bGlu115s37shr0CGRTg&callback=initMap")
+  

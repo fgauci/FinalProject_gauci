@@ -1,0 +1,45 @@
+extends ../layout
+block content
+  .container
+    if locals.user
+      h2 Visualisations of patient drawings
+      h4.details Details about the sessions can be found in the Tests section below.
+      h5.chart Test Session 1 - data1.csv
+      #chartData1
+      hr
+      h5.chart Test Session 2 - data2.csv
+      #chartData2
+      hr
+      h5.chart Test Session 3 - data3.csv
+      #chartData3
+      hr
+      h5.chart Test Session 4 - data4.csv
+      #chartData4
+      hr
+      h5.chart Test Session 5 - data5.csv
+      #chartData5
+      hr
+      h5.chart Test Session 6 - data6.csv
+      #chartData6
+      script(src='/js/doctor.js')
+      script(src='/js/activities.js')
+
+      h2.tests Tests
+        .testList
+          each val, index in testDetails
+            hr
+            table.testTable
+              tr
+                th(colspan='2') Test Session #{val.testID}
+              tr
+                td Date
+                td #{val.dateTime}
+              tr
+                td Patient
+                td #{val.patient}
+            p.data 
+            div.scrollTables(id="dataURL" + (index + 1))
+              span.downloadPrompt You can download the full data file
+                a(href=val.DataURL).dataURLs &nbsp;here.
+                br
+                hr

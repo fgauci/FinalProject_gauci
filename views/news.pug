@@ -1,0 +1,13 @@
+extends layout
+block content
+  .container
+    if locals.user
+        h3 Latest news 
+        p Here are the latest updates from News Medical
+        ul.rssList
+        each val in news
+            li
+                a.rssLink(target="_blank", href=val.link) #{val.title} 
+                hr
+    else
+        p You are not logged in!

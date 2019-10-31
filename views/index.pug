@@ -1,0 +1,18 @@
+extends layout
+block content
+  .container
+    if locals.user
+      h3 Hi #{locals.user.displayName}!
+      case loggedInWith
+        when 'google-oauth2'
+          h4 Logged in as a patient
+          span.pl-2 🤒🤒🤒🤒
+        when 'github'
+          h4 Logged in as a doctor
+            i.fas.fa-user-md.pl-2
+            i.fas.fa-hospital.pl-2
+            i.fas.fa-briefcase-medical.pl-2
+            i.fas.fa-syringe.pl-2
+            i.fas.fa-stethoscope.pl-2
+        when 'linkedin'
+          h4.font-italic Logged in as a researcher

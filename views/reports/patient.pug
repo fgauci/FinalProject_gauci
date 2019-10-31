@@ -1,0 +1,7 @@
+extends ../layout
+block content
+  if locals.user
+    .container
+      h3 Average Heart Rate during Exercise Sessions
+      #chartPatient
+      script(src='/js/patient.js')

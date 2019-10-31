@@ -1,0 +1,41 @@
+extends layout
+block content
+  if locals.user
+    .container
+        h3.therapyTrials Therapy Trials
+        .therapyList
+        each val in therapyDetails
+            table.therapyTable
+            tr
+                th(colspan='2') Therapy Session #{val.therapySession}
+            tr
+                td Patient
+                td #{val.patient}
+            tr
+                td Doctor
+                td #{val.doctor}
+            tr
+                td Medicine
+                td #{val.medicine}
+            tr
+                td Dosage
+                td #{val.dose}
+        hr
+
+        h2.tests Tests
+        .testList
+        each val, index in testDetails
+            table.testTable
+            tr
+                th(colspan='2') Test Session #{val.testID}
+            tr
+                td Date
+                td #{val.dateTime}
+            tr
+                td Patient
+                td #{val.patient}
+            p 
+            div.scrollTables(id="dataURL" + (index + 1))
+            | You can download the full data file
+            a(href=val.DataURL).dataURLs &nbsp;here.
+            hr

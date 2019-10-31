@@ -1,0 +1,51 @@
+extends ../layout
+block content
+  .container
+    if locals.user
+      h2 Visualisations of patient drawings
+      h4.details Details about the sessions can be found in the Tests section below.
+      h5.chart Test Session 1 - data1.csv
+      #chartData1
+      button#chartAnnotations1.btn.btn-primary(type="button") Save Annotations
+      hr
+      h5.chart Test Session 2 - data2.csv
+      #chartData2
+      button#chartAnnotations2.btn.btn-primary(type="button") Save Annotations
+      hr
+      h5.chart Test Session 3 - data3.csv
+      #chartData3
+      button#chartAnnotations3.btn.btn-primary(type="button") Save Annotations
+      hr
+      h5.chart Test Session 4 - data4.csv
+      #chartData4
+      button#chartAnnotations4.btn.btn-primary(type="button") Save Annotations
+      hr
+      h5.chart Test Session 5 - data5.csv
+      #chartData5
+      button#chartAnnotations5.btn.btn-primary(type="button") Save Annotations
+      hr
+      h5.chart Test Session 6 - data6.csv
+      #chartData6
+      button#chartAnnotations6.btn.btn-primary(type="button") Save Annotations
+      script(src='/js/researcher.js')
+      script(src='/js/activities.js')
+
+      h2.tests Tests
+        .testList
+          each val, index in testDetails
+            hr
+            table.testTable
+              tr
+                th(colspan='2') Test Session #{val.testID}
+              tr
+                td Date
+                td #{val.dateTime}
+              tr
+                td Patient
+                td #{val.patient}
+            p 
+            div.scrollTables(id="dataURL" + (index + 1))
+             span.downloadPrompt You can download the full data file
+              a(href=val.DataURL).dataURLs &nbsp;here.
+              br 
+              
